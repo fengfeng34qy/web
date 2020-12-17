@@ -1,0 +1,29 @@
+extends newarticle/layout
+//extends layout
+block content
+    .container
+        .row
+            .form-horizontal
+                if user
+                    input#inputAuthor.form-control(type="hidden", name="article[author]" value=article.author||user.name)
+                else
+                    input#inputAuthor.form-control(type="hidden", name="article[author]" value='匿名')
+                if article._id
+                    input.form-control#inputId(type="hidden", name="article[_id]" value=article._id)
+                .form-group
+                    label.col-sm-2.control-label(for="inputTitle") 文章标题
+                    .col-sm-10
+                        input#inputTitle.form-control(type="text", name="article[title]" placeholder="最多48个字" value=article.title)
+                .form-group
+                    label.col-sm-2.control-label(for="inputUrl") 简介
+                    .col-sm-10
+                        input#inputUrl.form-control(type="text", name="article[url]" value=article.url, placeholder="可不填")
+                .form-group
+                    label.col-sm-2.control-label(for="inputContent") 文章内容
+                    .col-sm-10
+                        textarea.createTextarea#inputContent.form-control(type="text", name="article[content]", rows="10", placeholder="") #{article.content}
+                .form-group
+                    .col-sm-offset-2.col-sm-10
+                        button.btn.btn-default#input-btn(type="submit") 录入
+    script(src='/javascripts/index.js' charset='UTF-8')
+    script(src='/javascripts/newarticle.js' charset='UTF-8')

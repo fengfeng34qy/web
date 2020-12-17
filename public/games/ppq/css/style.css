@@ -1,0 +1,39 @@
+html,body{ padding:0; margin:0;}
+#box{width:16rem; margin:0 auto; height:28.21rem; position: relative; background:url(../images/bg.jpg) no-repeat; background-size: contain; transform: perspective(800px); transform-style: preserve-3d;}
+.mask{  width:100%; height:100%; background:#000;opacity:0; text-align:center; position:relative; z-index: 103;}
+.ready_btn{
+    position: absolute;left:50%;top:25%; z-index: 150; border-radius:10px; display:inline-block; background: #fff; width:5rem; height: 2.4rem; line-height: 2.4rem; color:red; margin:-1.2rem 0 0 -2.5rem; text-align:center;
+
+}
+.table{width: 15rem; height:14.3rem;
+    box-sizing:border-box;
+    position: absolute; left:50%; top:63%; margin:-8rem 0 0 -7.5rem;
+
+    box-shadow:0.6rem 1.2rem 0 0 rgba(0,0,0,.2);
+
+}
+.person, .pc{width:100%; height:2rem; background:pink; position: absolute; text-align:center; line-height: 2rem;}
+.person{ bottom:0;}
+.ball{
+    width:1rem; height:1rem; background:orange; border-radius: 50%; position:absolute; left:50%; top:0;box-sizing: border-box;z-index: 101;
+}
+#pc_bat,#person_bat{ width:2rem; height:2.8rem; overflow: hidden;background-size:contain; position:absolute;}
+#pc_bat{background:url("../img/qiupai3_pc.png") no-repeat;background-size:contain; z-index:102; box-sizing: border-box; position:absolute; left:50%; top:-1rem; opacity:.8}
+#person_bat{background:url("../img/qiupai3_wanjia.png") no-repeat;background-size:contain; left:50%;bottom:-2rem; z-index:102; box-sizing: border-box; opacity: .8}
+.bs{box-sizing:border-box;}
+.over{position:relative; width:12rem; height:13.7rem; background:url(../img/over.png)no-repeat;background-size:100%; left:50%; top:4rem; margin-left:-6rem; border-radius:.5rem; z-index:200; display:none;}
+.pai{
+    animation:down 150ms linear both;
+}
+.know{width:70%; height:1.6rem; background:#FF6763; border-radius:.2rem; color:#fff; text-align:center; font-size:16px; font-family:'微软雅黑'; line-height: 1.6rem; position:absolute; left:50%; bottom:1.5rem; margin-left:-35%;}
+.txt_box p{text-align:center; line-height: 0;}
+.txt_box{position:absolute; width:100%; left:50%; bottom:3.4rem; margin-left:-50%; font-size:18px;}
+@keyframes down {
+    0%{transform: rotateX(0deg)}
+    50%{transform: rotateX(60deg)}
+    100%{transform: rotateX(0deg)}
+}
+
+
+
+

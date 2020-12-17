@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=" width=device-width,user-scalable=no,initial-scale=1.0" />
+    <title>Title</title>
+    <link rel="stylesheet" href="css/start.css">
+    <script>
+        (function(win,doc){
+            function change(){
+                doc.documentElement.style.fontSize=20/320*doc.documentElement.clientWidth+'px';
+            }
+            change();
+            win.addEventListener('resize',change,false);
+        })(window,document);
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div class="start">
+            <a href="javascript:;"></a>
+        </div>
+        <div class="hdpm">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>

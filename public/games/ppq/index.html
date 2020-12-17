@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content=" width=device-width,user-scalable=no,initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/script.js"></script>
+
+    <script>
+        (function(win,doc){
+            function change(){
+                doc.documentElement.style.fontSize=20/320*doc.documentElement.clientWidth+'px';
+            }
+            change();
+            win.addEventListener('resize',change,false);
+        })(window,document);
+    </script>
+</head>
+<body>
+    <section id="box">
+        <!-- 当前积分 -->
+        <section id="jifen">
+            当前分数：<span id="score">0</span>
+        </section>
+        <section>
+            <div class="ranking"></div>
+            <div class="over" id="over">
+                <div class="txt_box">
+                    <p>坚持了<span></span>秒</p>
+                    <p>您现在排名第<span></span>名</p>
+                </div>
+                <div class="know">我知道了</div>
+            </div>
+        </section>
+        <section class="table" id="table">
+            <section class="mask" id="mask"></section>
+            <span class="ready_btn" id="ready_btn">开始</span>
+                <div id="pc_bat"></div>  <!-- 电脑球拍 -->
+                <div id="person_bat"></div>  <!-- 玩家球拍 -->
+            <div class="ball" id="ball"></div>  <!-- 乒乓球 -->
+        </section>
+        <!--<audio id="myAudio" src="mp3/video2.mp3" preload="auto" autoplay style="display:none"></audio>-->
+    </section>
+    <script src="js/fn.js"></script>
+    <script src="js/move2.js"></script>
+</body>
+</html>

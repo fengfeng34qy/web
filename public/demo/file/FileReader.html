@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input type="file" id="file">
+    <input type="button" onclick="readAsDataURL()" value="读取图像">
+    <input type="button" onclick="readAsBinaryString()" value="读取二进制数据">
+    <input type="button" onclick="readFileType()" value="读取文件类型">
+    <div id="result"></div>
+</div>
+
+<script>
+    function readAsDataURL(){
+        var file = document.getElementById('file').files[0];
+        var reader = new FileReader();
+        if(!file){
+            alert('先选择文件');
+            return false;
+        }
+        reader.readAsDataURL(file);
+        reader.onload = function(){
+            var result = document.getElementById('result');
+            result.innerHTML = '<img src="'+this.result+'" />';
+        }
+    }
+    function readAsBinaryString(){
+        var file = document.getElementById('file').files[0];
+        if(!file){
+            alert('先选择文件');
+            return false;
+        }
+        var reader = new FileReader();
+        reader.readAsBinaryString(file);
+        reader.onload = function(){
+            var result = document.getElementById('result');
+            result.innerHTML = this.result;
+        }
+    }
+    function readFileType(){
+        var file = document.getElementById('file').files[0];
+        var blob = file.slice(0, 4);
+        var reader = new FileReader();
+        reader.readAsArrayBuffer(blob);
+        reader.onload = function(e){
+            var buffer = this.result;
+            var view = new DataView(buffer);
+            var magic = view.getInt32(0, false);
+            if(magic<0){
+                magic = magic + 0x100000000;
+            }
+            magic = magic.toString(16).toUpperCase();
+            if(magic.indexOf('FFD8FF') >= 0){
+                alert('jpg文件');
+            }
+            if(magic.indexOf('89504E47') >= 0){
+                alert('png文件');
+            }
+            if(magic.indexOf('47494638') >= 0){
+                alert('gif文件');
+            }
+            if(magic.indexOf('49492A00') >= 0){
+                alert('tif文件');
+            }
+            if(magic.indexOf('424D') >= 0){
+                alert('bmp文件');
+            }
+        }
+    }
+</script>
+</body>
+</html>

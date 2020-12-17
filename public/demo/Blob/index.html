@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<textarea name="" id="text" cols="30" rows="10"></textarea>
+<button id="btndownload" onclick="Blob_text()">创建及下载二级制文件</button>
+<output id="result"></output>
+
+<script>
+    function Blob_text(){
+        var text = document.getElementById('text').value;
+        var blob;
+        var result = document.getElementById('result');
+        blob = new Blob([text]);
+        if(window.URL){
+            result.innerHTML = '<a download href="'+window.URL.createObjectURL(blob)+'" target="_blank">文件下载</a>';
+        }
+    }
+</script>
+</body>
+</html>

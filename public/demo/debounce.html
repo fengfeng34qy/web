@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>debounce防抖动事件</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<style>
+    div{
+        text-align: center;
+    }
+</style>
+<body>
+    <div>
+        <h3>请打开console面板并双击按钮发起请求</h3>
+        <p>提示：3秒内多次点击按钮只会发起一笔请求</p>
+    </div>
+    <div>
+        <input type="button" id="btn" value="发起请求">
+    </div>
+    <script>
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = debounce(function(){
+            getUserToAjax();
+        }, 3000, false);
+
+
+        function getUserToAjax(){
+            $.ajax({
+                type: 'post',
+                url: 'http://www.sunfengfeng.com/user/getUser',
+                data: {name: 'sff11'},
+                success: function(response){
+                    console.log(response);
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+        }
+
+        function debounce(g,ms,flag){
+            var t = null;
+            return function(){
+                var n = this;
+                var l = arguments;
+                var C = function(){
+                    t=null;
+                    flag||g.apply(n,l);
+                };
+                var A=flag && !t;
+                clearTimeout(t);
+                t=setTimeout(C,ms);
+                A&&g.apply(n,l);
+            }
+        }
+    </script>
+</body>
+</html>

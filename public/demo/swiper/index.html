@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<title>swiper效果展示</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.0/css/swiper.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.0/js/swiper.js"></script>
+	<style>
+		.swiper-container{
+			width: 600px;
+			height: 300px;
+			text-align: center;
+			margin: 60px auto;
+		}
+		.swiper-slide{
+			background: #eee;
+		}
+	</style>
+</head>
+<body>
+	<h4 style="text-align:center;">鼠标滑动试试.</h4>
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide">Slide 1</div>
+	        <div class="swiper-slide">Slide 2</div>
+	        <div class="swiper-slide">Slide 3</div>
+	        <div class="swiper-slide">Slide 4</div>
+	        <div class="swiper-slide">Slide 5</div>
+	        <div class="swiper-slide">Slide 6</div>
+	    </div>
+	    <!-- 如果需要分页器 -->
+	    <div class="swiper-pagination"></div>
+	    
+	    <!-- 如果需要导航按钮 -->
+	    <!-- <div class="swiper-button-prev"></div> -->
+	    <!-- <div class="swiper-button-next"></div> -->
+	    
+	    <!-- 如果需要滚动条 -->
+	    <div class="swiper-scrollbar"></div>
+	</div>
+<script>
+	var mySwiper = new Swiper('.swiper-container', {
+		autoplay: {disableOnInteraction: false},
+		effect: 'cube',
+		grabCursor: true
+	})
+</script>
+</body>
+</html>

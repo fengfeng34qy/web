@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="pageone">
+    <div data-role="header">
+        <h1>欢迎来到我的主页</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>点击链接查看淡入效果 (页面从右至左淡入)。</p>
+        <div>
+            <a href="#pagedialog">弹出对话框</a>
+        </div>
+        <a href="#pagetwo" data-transition="slide">下一页</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>底部文本</h1>
+    </div>
+</div>
+
+<div data-role="page" id="pagetwo">
+    <div data-role="header">
+        <h1>欢迎来到我的主页</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>第二页内容</p>
+        <a href="#pageone" data-transition="slide" data-direction="reverse">上一页</a>
+        <a href="#pagethree" data-transition="slide">下一页</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>底部文本</h1>
+    </div>
+</div>
+
+<div data-role="page" id="pagethree">
+    <div data-role="header">
+        <h1>欢迎来到我的主页</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>第三页内容</p>
+        <a href="#pagetwo" data-transition="slide" data-direction="reverse">上一页</a>
+        <!--<a href="#page" data-transition="slide" data-direction="reverse">下一页</a>-->
+    </div>
+
+    <div data-role="footer">
+        <h1>底部文本</h1>
+    </div>
+</div>
+
+<div data-role="page" data-dialog="true" id="pagedialog">
+    <div data-role="header">
+        <h1>我是一个对话框！</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>对话框与普通页面不同，它显示在当期页面上, 但又不会填充完整的页面，顶部图标 "X" 用于关闭对话框。</p>
+        <a href="#pageone">跳转到第一个页面</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>对话框底部文本</h1>
+    </div>
+</div>
+
+</body>
+</html>

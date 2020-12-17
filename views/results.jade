@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    .container
+        .row
+            .col-md-8.col-lg-8
+                div.clearfix
+                    h3.new 全部文章
+                ul.article
+                    each item in articles
+                        li
+                            div.delBtn(data-id="#{item._id}") 删除
+                            div.pull-left
+                                i #{moment(item.meta.updateAt).format('YYYY-MM-DD')}&nbsp»&nbsp;
+                                a(href="/admin/article/#{item._id}") #{item.title}
+                            div.pull-right
+                                span 点击量：
+                                i.pv #{item.pv}
+                ul.pagination
+                    - for(var i=0; i<totalPage; i++){
+                        - if (currentPage == (i+1)){
+                            li.active
+                                span #{currentPage}
+                        - }
+                        - else{
+                            li
+                                a(href="/article/results?page=#{i}") #{i+1}
+                        - }
+                    - }
+            .col-md-4.col-lg-4
+    script(src="/javascripts/result.js")

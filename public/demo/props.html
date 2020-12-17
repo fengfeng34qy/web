@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript"  src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body >
+<div id="app">
+    <!--静态传递数据-->
+     <my-component message="hello" name="刘二狗" age="18"></my-component>
+</div>
+</body>
+
+<script>
+    Vue.component('my-component',{
+        //子组件使用父组件的数据 message  name  age
+        props:['message','name','age'],
+        //用data选项对数据进行处理
+        data:function(){
+          return{
+              message1: this.message +'用data选项对数据进行处理'
+          }
+        },
+        //用计算属性选项对数据进行处理
+        computed:{
+            message2:function(){
+                return this.message + '用计算属性选项对数据进行处理'
+            }
+        },
+        template:'<div>' +
+                    '<span>{{message1}}</span><br>'+
+                    '<span>{{message2}}</span><br>'+
+                    '<span>{{message}}  {{name}}今年{{age}}了</span><br>'+
+                 '</div>'
+    })
+    new Vue({
+        el:'#app'
+    })
+</script>
+</html>

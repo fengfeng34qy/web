@@ -1,0 +1,4 @@
+
+在svr文件夹下运行 node Main.js
+
+浏览器打开index.html

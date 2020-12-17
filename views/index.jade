@@ -1,0 +1,123 @@
+extends layout
+
+block content
+  <img src="images/12175.png" alt="孙锋锋的网络日志" title="孙锋锋的网络日志" style="display:none;cursor:pointer;">
+  .container
+    .row.con-top
+      .col-md-8.col-lg-8.search-box
+        .clearfix
+          div.pull-right(style="background: #FFF;")
+            input#search(type="text" placeholder="如意金箍棒（回车）")
+        .col-md-4
+      .col-md-8
+        div.border-d3
+          div.clearfix
+            h3.new.pull-left 最新文章
+            a.pull-right.btn.btn-primary(href="/admin/article/new" role="button") 创建文章
+          ul.article
+            each item in articles
+              li
+                div.delBtn(data-id="#{item._id}") 删除
+                span #{moment(item.meta.updateAt).format('YYYY年MM月DD日')}&nbsp;&nbsp;»&nbsp;&nbsp;
+                a(href="/admin/article/#{item._id}") #{item.title}
+                div.pv-box.pull-right
+                  span(style="color:#777;font-family:Arial, Sans-Serif") 阅读：
+                  i.pv #{item.pv}
+            li
+              a(href="/article/results?page=0" style="font-weight: bold;") 更多文章......
+      .col-md-4.col-lg-4.my-article
+        div.border-d3.side-right
+          div.clearfix
+            h3.pull-left 我的文章
+            if !user
+              .pull-right (登录后可查看自己的文章)
+          ul.article.myart
+            if user
+              each item in articles
+                if item.author == user.name
+                  li
+                    a(href="/admin/article/#{item._id}" title="#{item.title}" author="#{item.author}" name="#{user.name}") #{item.title}
+            else
+              div 您还没有创建文章
+    .row
+      .col-md-8.col-lg-8
+        div.border-d3
+          div.clearfix
+            h3.new.pull-left 实用组件
+          ul.article
+            li
+              a(href="components/my/modul/app.html", target="_blank") 模态
+            li
+              a(href="http://nbcb.sunfengfeng.com/", target="_blank") backbone架构
+            li
+              a(href="http://xtbank.sunfengfeng.com/", target="_blank") vue架构
+      .col-md-4.col-lg-4
+        div.border-d3.side-right
+          div.clearfix
+            h3 我的收藏
+          div 暂无此模块
+    .row
+      .col-md-8.col-lg-8.liuyanarea
+        div
+          h3 留言
+            a(href="javascript:;", target="_blank") (#{messagelen})
+          div.liuyanzone
+            each item,index in messages
+              li
+                span.user-name-msg 
+                  a(href="javascript:;" style="color:blue;") #{item.name}
+                span 说：
+                p #{item.content}
+                p.text-right(style="font-size: 12px;") #{moment(item.meta.updateAt).format('YYYY年M月 D 日 HH:mm')}
+            div.clearfix
+              a.pull-right(href="#",style="font-weight: bold;") 查看更多...
+        .form-group.liuyaninp
+          textarea.form-control.liuyanerea-home(rows="4" style="resize: none;")
+          button.btn.btn-primary.pull-right.liuyanbtn-home(type='submit') 留言
+          if user
+            input.author(type="hidden" value="#{user.nickname}")
+      .col-md-4.col-lg-4
+        div(style="margin: 10px 0;")
+          img(src="/12175.png" alt="孙锋锋的网络日志" title="孙锋锋的网络日志")
+        h3 联系作者
+        div QQ: 405010021
+        div 微信: fengfeng34qy
+  .register
+    .main
+      .line.rel
+        div
+          span.lable-item.inline-block 用户名:
+          input#signupName(placeholder="4-12位数字或字母或_")
+      .line.rel
+        div
+          span.lable-item.inline-block 昵称:
+          input(placeholder="最多5个汉字或10个字母")#nickname
+      .line.rel
+        div
+          span.lable-item.inline-block 密码:
+          input#signupPassword(type="password")
+      .line.rel
+        div
+          span.lable-item.inline-block 确认密码:
+          input#passwordSure(type="password")
+      .line
+        div 头像:
+      .line
+        div
+          img.face(src="images/face/01.png" style="width:30px;height:30px;margin:0 5px;")
+          img.face(src="images/face/02.png" style="width:30px;height:30px;margin:0 5px;")
+          img.face(src="images/face/03.png" style="width:30px;height:30px;margin:0 5px;")
+          img.face(src="images/face/04.png" style="width:30px;height:30px;margin:0 5px;")
+          img.face(src="images/face/05.png" style="width:30px;height:30px;margin:0 5px;")
+          img.face(src="images/face/06.png" style="width:30px;height:30px;margin:0 5px;")
+          img.face(src="images/face/07.png" style="width:30px;height:30px;margin:0 5px;")
+          img.face(src="images/face/08.png" style="width:30px;height:30px;margin:0 5px;")
+          img.face(src="images/face/09.png" style="width:30px;height:30px;margin:0 5px;")
+          img.face(src="images/face/10.png" style="width:30px;height:30px;margin:0 5px;")
+      .line
+        button#submitBtn 提交
+        button#concelBtn 取消
+  .footer.footer-beian
+    span 
+      a(href="http://beian.miit.gov.cn", target="_blank") 冀ICP备19000578号
+  script(src="/javascripts/index.js")

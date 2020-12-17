@@ -1,0 +1,11 @@
+html,body{margin:0; padding:0; list-style: none; width:100%; height:100%;}
+#box{width:16rem; height:100%; background:url(../images/home.jpg)no-repeat; background-size:contain; position:relative;}
+.top{position:absolute; left:50%; bottom:2rem; margin-left:-6rem;}
+.top>a{margin-bottom:.6rem; border-radius:.5rem; display:block;}
+.top>a:nth-child(1){width:12rem; height:3.58rem; background:url(../img/tianjing.png)no-repeat; background-size:contain;}
+.top>a:nth-child(2){width:12rem; height:3.58rem; background:url(../img/qiusai.png)no-repeat; background-size:contain;}
+.top>a:nth-child(3){width:12rem; height:3.58rem; background:url(../img/jingcai.png)no-repeat; background-size:contain;}
+.bottom{position:absolute; left:50%; bottom:.4rem; margin-left:-2.4rem}
+.bottom>a{display:block; width:5.7rem; height:2rem; background:url(../img/zhinan2.png)no-repeat;}
+
+

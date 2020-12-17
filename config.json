@@ -1,0 +1,10 @@
+{
+    "port": 8000,
+    "wechat": {
+        "appID": "wxf9519c4681b18727",
+        "appSecret": "ca6a7dfb84bbaa2f9e284d0ff0cf8051",
+        "token": "sunfengfengdetoken",
+        "prefix": "https://api.weixin.qq.com/cgi-bin/",
+        "mpPrefix": "https://mp.weixin.qq.com/cgi-bin/"
+    }
+}

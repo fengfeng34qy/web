@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://apps.bdimg.com/libs/Chart.js/0.2.0/Chart.min.js"></script>
+</head>
+<body>
+    <div style="margin: 40px;">
+        <span>文章来源:</span><a href="http://www.bootcss.com/p/chart.js/docs/">http://www.bootcss.com/p/chart.js/docs/</a>
+    </div>
+    <canvas id="myChart0" width="400" height="400"></canvas>
+    <canvas id="myChart1" width="400" height="400"></canvas>
+    <canvas id="myChart2" width="400" height="400"></canvas>
+    <canvas id="myChart3" width="400" height="400"></canvas>
+    <canvas id="myChart4" width="400" height="400"></canvas>
+    <canvas id="myChart5" width="400" height="400"></canvas>
+    <canvas id="myChart6" width="400" height="400"></canvas>
+    <script>
+        var ctx0 = document.getElementById("myChart0").getContext("2d");
+        var ctx1 = document.getElementById("myChart1").getContext("2d");
+        var ctx2 = document.getElementById("myChart2").getContext("2d");
+        var ctx3 = document.getElementById("myChart3").getContext("2d");
+        var ctx4 = document.getElementById("myChart4").getContext("2d");
+        var ctx5 = document.getElementById("myChart5").getContext("2d");
+        var ctx6 = document.getElementById("myChart6").getContext("2d");
+
+        var options1 = {
+
+            //Boolean - 如果我们在图表数据上面显示刻度
+            scaleOverlay : false,
+
+            //Boolean - 如果我们想用硬编码覆盖
+
+            scaleOverride : false,
+
+            //** Required if scaleOverride is true **
+            //Number - 硬编码范围中的步骤数
+            scaleSteps : null,
+            //Number - 硬编码范围内的值跳转
+            scaleStepWidth : null,
+            //Number - 标度起始值
+            scaleStartValue : null,
+
+            //String - 刻度线的颜色
+            scaleLineColor : "rgba(0,0,0,.1)",
+
+            //Number - 刻度线的像素宽度
+            scaleLineWidth : 1,
+
+            //Boolean - 是否在刻度上显示标签
+            scaleShowLabels : false,
+
+            //插值JS字符串-可以访问值
+            scaleLabel : "<%=value%>",
+
+            //String - 尺度是Declaration for the scale标签标签
+            scaleFontFamily : "'Arial'",
+
+            //Number - 标签是在像素规模大小
+            scaleFontSize : 12,
+
+            //String - label的字体风格量表
+            scaleFontStyle : "normal",
+
+            //String - Scale label font colour
+            scaleFontColor : "#666",
+
+            ///Boolean - Whether grid lines are shown across the chart
+            scaleShowGridLines : true,
+
+            //String - Colour of the grid lines
+            scaleGridLineColor : "rgba(0,0,0,.05)",
+
+            //Number - Width of the grid lines
+            scaleGridLineWidth : 1,
+
+            //Boolean - If there is a stroke on each bar
+            barShowStroke : true,
+
+            //Number - Pixel width of the bar stroke
+            barStrokeWidth : 2,
+
+            //Number - Spacing between each of the X value sets
+            barValueSpacing : 5,
+
+            //Number - Spacing between data sets within X values
+            barDatasetSpacing : 1,
+
+            //Boolean - Whether to animate the chart
+            animation : true,
+
+            //Number - Number of animation steps
+            animationSteps : 60,
+
+            //String - 动画效果
+            animationEasing : "easeOutQuart",
+
+            //Function - Fires when the animation is complete
+            onAnimationComplete : null
+
+        };
+        var data0 = {
+            labels : ["January","February","March","April","May","June","July"],
+            datasets : [
+                {
+                    fillColor : "rgba(220,220,220,0.5)",
+                    strokeColor : "rgba(220,220,220,1)",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    data : [65,59,90,81,56,55,40]
+                },
+                {
+                    fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "rgba(151,187,205,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    data : [28,48,40,19,96,27,100]
+                }
+            ]
+        };
+        var data1 = {
+            labels : ["January","February","March","April","May","June","July"],
+            datasets : [
+                {
+                    fillColor : "rgba(220,220,220,0.5)",
+                    strokeColor : "rgba(220,220,220,1)",
+                    data : [65,59,90,81,56,55,40]
+                },
+                {
+                    fillColor : "rgba(151,187,205,0.5)",
+                    strokeColor : "rgba(151,187,205,1)",
+                    data : [28,48,40,19,96,27,100]
+                }
+            ]
+        };
+        var data2 = [
+            {
+                value: 30,
+                color:"#F38630"
+            },
+            {
+                value : 50,
+                color : "#E0E4CC"
+            },
+            {
+                value : 100,
+                color : "#69D2E7"
+            }
+        ];
+        var data3 = [
+            {
+                value: 30,
+                color:"#F7464A"
+            },
+            {
+                value : 50,
+                color : "#E2EAE9"
+            },
+            {
+                value : 100,
+                color : "#D4CCC5"
+            },
+            {
+                value : 40,
+                color : "#949FB1"
+            },
+            {
+                value : 120,
+                color : "#4D5360"
+            }
+
+        ];
+        new Chart(ctx0).Line(data0);                 // 曲线图
+        new Chart(ctx1).Bar(data1, options1);       // 柱状图
+        new Chart(ctx2).Pie(data2);                  // 饼图
+        new Chart(ctx3).Doughnut(data3);             // 环形图
+    </script>
+</body>
+</html>

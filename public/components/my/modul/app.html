@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/App.css">
+    <script src="js/myfn.js"></script>
+    <script src="js/App.js"></script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <span>组件1. </span>
+                <button id="modalBtn" class="">show modal</button>
+                <button id="useModal" class="">组件用法</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+
+        modalBtn.onclick = function(){
+            myApp.modal();
+        };
+        useModal.onclick = function(){
+            myApp.modal({
+                content: '<div>调用方法: app.modal()</div>\
+                           <div>参数说明: object 非必需</div> \
+                           <div>object 属性说明:</div>\
+                           <div>title: string 非必需 说明：标题</div>\
+                           <div>content: string 非必需 说明: 弹窗内容,</div>\
+                           <div>confirm: function 非必需 说明: 点击确认触发的事件</div>\
+                           <div>concel: function 非必需 说明: 点击取消触发的事件</div>\
+                            ',
+                confirm: function(){
+                    alert('你点击了确定');
+                },
+                concel: function(){
+                    alert('你点击了取消');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
